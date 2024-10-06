@@ -9,15 +9,17 @@ export default function CodeEditor({ code, language }: any) {
     // onchange( value);
   };
   return (
-    <div className="rounded-md   mx-auto shadow-xl mt-6 ">
+    <div className="rounded-md  flex shadow-xl mt-6 ">
       <Editor
         height="400px"
         language={language ? language : "javascript"}
-        width="900px"
+        width="600px"
         value={value}
         onChange={handleChange}
         theme="vs-dark"
       />
+
+      <div></div>
     </div>
   );
 }

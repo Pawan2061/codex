@@ -3,9 +3,8 @@ import CodeEditor from "./components/Editor";
 import Landing from "./components/Landing";
 
 export default function Home() {
-  const value = "";
   return (
-    <div className=" ">
+    <div className="  ">
       <Landing />
     </div>
   );
