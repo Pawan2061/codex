@@ -1,5 +1,12 @@
-import Image from "next/image";
+"use client";
+import CodeEditor from "./components/Editor";
+import Landing from "./components/Landing";
 
 export default function Home() {
-  return <div>hello</div>;
+  const value = "";
+  return (
+    <div className=" ">
+      <Landing />
+    </div>
+  );
 }
