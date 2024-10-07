@@ -18,8 +18,6 @@ export default function CodeEditor({ code, language }: any) {
         onChange={handleChange}
         theme="vs-dark"
       />
-
-      <div></div>
     </div>
   );
 }
