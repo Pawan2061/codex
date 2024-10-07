@@ -4,6 +4,7 @@ import { defaultCode, languages } from "../app/constants";
 import { Button } from "@chakra-ui/react";
 import { compile, showResult } from "@/utils/compile";
 import Output from "./Output";
+import DropDown from "./Dropdown";
 
 export default function Landing() {
   const [code, setCode] = useState(defaultCode);
@@ -12,6 +13,8 @@ export default function Landing() {
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
+    console.log(language, "is used");
+
     setLoading(true);
     try {
       console.log("Compiling code...");
@@ -52,19 +55,22 @@ export default function Landing() {
   };
 
   return (
-    <div className="flex  justify-around mt-10">
-      <CodeEditor code={code} language={language.value} onChange={onChange} />
-      {/* {loading && <div>Still working on it...</div>} */}
-      {/* {output && ( */}
+    <div className="lg:flex   justify-around mt-10">
+      <DropDown setLanguage={setLanguage} />
+      <CodeEditor
+        code={code}
+        setLanguage={setLanguage}
+        language={language}
+        onChange={onChange}
+      />
+
       <div className="border border-black rounded-xl w-[400px]">
         <Output
           loading={loading}
           handleClick={handleClick}
-          output={JSON.stringify(output, null, 2)}
+          output={JSON.stringify(output)}
         />
-        {/* <pre>{JSON.stringify(output, null, 2)}</pre> */}
       </div>
-      {/* )} */}
     </div>
   );
 }

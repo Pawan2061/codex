@@ -2,9 +2,7 @@ import { languages } from "@/app/constants";
 import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 
-const DropDown = () => {
-  console.log(languages.values);
-
+const DropDown = ({ setLanguage }: any) => {
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -12,7 +10,7 @@ const DropDown = () => {
         <div>
           <button
             type="button"
-            className="inline-flex w-40 justify-center gap-x-1.5 bg-[#B8FF9F] hover:bg-[#99fc77] px-3 py-2 border-black border-2 focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+            className="inline-flex w-32 rounded-xl justify-center gap-x-1.5 bg-[#B8FF9F] hover:bg-[#99fc77] px-3 py-2 border-black border-2 focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"
@@ -47,6 +45,9 @@ const DropDown = () => {
               <Button
                 onClick={() => {
                   console.log(language.value);
+
+                  setLanguage(language.value);
+
                   setOpen(!open);
                 }}
                 className="block w-full px-4 py-2 text-sm border-black border-b-2 hover:bg-[#B8FF9F] hover:font-medium"

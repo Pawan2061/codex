@@ -35,7 +35,6 @@ export default function Navbar() {
         </a>
       </div>
       <div className="flex mx-auto space-x-10">
-        <DropDown />
         <Button>2</Button>
       </div>
     </div>
