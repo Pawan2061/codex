@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CodeEditor from "./Editor";
-import { defaultCode, languages } from "../app/constants";
+import { defaultCode, jlanguages, languages } from "../app/constants";
 import { Button } from "@chakra-ui/react";
 import { compile, showResult } from "@/utils/compile";
 import Output from "./Output";
@@ -9,20 +9,24 @@ import DropDown from "./Dropdown";
 export default function Landing() {
   const [code, setCode] = useState(defaultCode);
   const [language, setLanguage] = useState(languages[0]);
-  const [output, setOutput] = useState<any>(null);
+  const [output, setOutput] = useState<any>();
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
+    setOutput("");
     console.log(language, "is used");
 
     setLoading(true);
     try {
       console.log("Compiling code...");
 
+      console.log(language.id, "id here");
+
       const data = {
         language_id: language.id,
         source_code: btoa(code),
       };
+      console.log(data.language_id, "lang ids");
 
       const token = await compile(data);
       if (!token) {

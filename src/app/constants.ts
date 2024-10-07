@@ -96,3 +96,53 @@ export const languages = [
 
 export const defaultCode = `
   console.log("welcome there")`;
+
+const fetchLanguages = async () => {
+  try {
+    const response = await fetch("https://ce.judge0.com/languages/");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const languagesArray = await response.json(); // This should be an array of languages
+    console.log(languagesArray);
+    return languagesArray; // Return the languages array
+  } catch (error) {
+    console.error("Error fetching languages:", error);
+  }
+};
+
+// Example usage
+// fetchLanguages().then((languages) => {
+//   console.log("Languages:", languages);
+// });
+
+export const jlanguages = [
+  {
+    id: 4,
+    name: "JavaScript (Node.js 12.14.0)",
+    extension: "js",
+    compiled: false,
+    environment: "node",
+  },
+  {
+    id: 1,
+    name: "C (gcc 9.3.0)",
+    extension: "c",
+    compiled: true,
+    environment: "gcc",
+  },
+  {
+    id: 2,
+    name: "Java (OpenJDK 11.0.10)",
+    extension: "java",
+    compiled: true,
+    environment: "jdk",
+  },
+  {
+    id: 3,
+    name: "Python (3.8.6)",
+    extension: "py",
+    compiled: false,
+    environment: "python",
+  },
+];
