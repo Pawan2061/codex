@@ -21,7 +21,8 @@ export default function Output({ output, handleClick, loading }: any) {
           <LoadingButton />
         </div>
       )}
-      {/* {output && <h1>{output}</h1>} */}
+
+      <div className="max-w-[100px]">{output && <h1>{output}</h1>}</div>
     </div>
   );
 }

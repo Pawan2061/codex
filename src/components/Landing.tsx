@@ -9,7 +9,7 @@ import DropDown from "./Dropdown";
 export default function Landing() {
   const [code, setCode] = useState(defaultCode);
   const [language, setLanguage] = useState(languages[0]);
-  const [output, setOutput] = useState(null);
+  const [output, setOutput] = useState<any>(null);
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
@@ -37,7 +37,11 @@ export default function Landing() {
         } else {
           console.log("Compilation completed:", result);
           setLoading(false);
-          setOutput(result);
+          console.log(result.stdout);
+          const decodedOutput = result?.stdout ? atob(result.stdout) : "";
+          console.log(decodedOutput);
+
+          setOutput(decodedOutput);
         }
       };
 

@@ -1,12 +1,13 @@
 import { Button } from "@chakra-ui/react";
 import DropDown from "./Dropdown";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export default function Navbar() {
   return (
     <div className="relative flex flex-col">
       <div className="h-[30px]  bg-orange-500  hover:bg-orange-400 duration-75 ">
         <a
-          href="https://github.com/manuarora700/react-code-editor"
+          href="https://github.com/Pawan2061/codex"
           title="Fork me on GitHub"
           className="absolute top-0 right-0 github-corner"
           target="_blank"
@@ -26,6 +27,7 @@ export default function Navbar() {
               style={{ transformOrigin: "130px 110px" }}
               className="octo-arm"
             ></path>
+
             <path
               d="M113.2 114.3s3.6 1.6 4.7.6l15-13.7c3-2.4 6-3 8.2-2.7-8-11.2-14-25 3-41 4.7-4.4 10.6-6.4 16.2-6.4.6-1.6 3.6-7.3 11.8-10.7 0 0 4.5 2.7 6.8 16.5 4.3 2.7 8.3 6 12 9.8 3.3 3.5 6.7 8 8.6 12.3 14 3 16.8 8 16.8 8-3.4 8-9.4 11-11.4 11 0 5.8-2.3 11-7.5 15.5-16.4 16-30 9-40 .2 0 3-1 7-5.2 11l-13.3 11c-1 1 .5 5.3.8 5z"
               fill="currentColor"
