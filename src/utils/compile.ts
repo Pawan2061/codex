@@ -82,6 +82,7 @@
 
 
 import axios from "axios";
+import { error } from "console";
 
 // Compile code
 export const compile = async (data: any) => {
@@ -96,13 +97,25 @@ export const compile = async (data: any) => {
       },
       data: data,
     };
+    
     const response = await axios.request(options);
+    if(!response){
+      console.log("too many requests");
+      return;
+      
+    }
+    
     const token = response.data.token;
     console.log("Token:", token);
     return token;  // Return the token to be used later
-  } catch (error) {
-    console.error("Error in compile:", error);
-    throw error;
+  } catch(error:any){
+   
+    if(error.status==429){
+      console.log("too many request");
+      
+
+    }
+    
   }
 };
 

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import CodeEditor from "./Editor";
-import { defaultCode, languages } from "../constants";
+import { defaultCode, languages } from "../app/constants";
 import { Button } from "@chakra-ui/react";
 import { compile, showResult } from "@/utils/compile";
+import Output from "./Output";
 
 export default function Landing() {
   const [code, setCode] = useState(defaultCode);
@@ -21,25 +22,28 @@ export default function Landing() {
       };
 
       const token = await compile(data);
-      console.log("Compilation token received:", token);
-
+      if (!token) {
+        console.log("no token received");
+        return;
+      }
       const fetchResult = async () => {
         const result = await showResult(token);
         if (result.status_id === 1 || result.status_id === 2) {
           console.log("Still in queue or processing...");
-          // Recheck after 2 seconds
           setTimeout(fetchResult, 2000);
         } else {
           console.log("Compilation completed:", result);
           setLoading(false);
-          setOutput(result); // Set the output once the process is done
+          setOutput(result);
         }
       };
 
-      fetchResult(); // Call the fetchResult function to start checking the status
+      fetchResult();
+
+      console.log("Compilation token received:", token);
     } catch (error) {
       console.error("Error during compilation or result fetching:", error);
-      setLoading(false); // Stop loading if there's an error
+      setLoading(false);
     }
   };
 
@@ -48,16 +52,19 @@ export default function Landing() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex  justify-around mt-10">
       <CodeEditor code={code} language={language.value} onChange={onChange} />
-      <Button onClick={handleClick}>Exec</Button>
-      <h3>Output:</h3>
-      {loading && <div>Still working on it...</div>}
-      {output && (
-        <div>
-          <pre>{JSON.stringify(output, null, 2)}</pre>
-        </div>
-      )}
+      {/* {loading && <div>Still working on it...</div>} */}
+      {/* {output && ( */}
+      <div className="border border-black rounded-xl w-[400px]">
+        <Output
+          loading={loading}
+          handleClick={handleClick}
+          output={JSON.stringify(output, null, 2)}
+        />
+        {/* <pre>{JSON.stringify(output, null, 2)}</pre> */}
+      </div>
+      {/* )} */}
     </div>
   );
 }
