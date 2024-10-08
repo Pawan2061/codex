@@ -1,7 +1,6 @@
 import { useState } from "react";
 import CodeEditor from "./Editor";
-import { defaultCode, jlanguages, languages } from "../app/constants";
-import { Button } from "@chakra-ui/react";
+import { defaultCode, languages } from "../app/constants";
 import { compile, showResult } from "@/utils/compile";
 import Output from "./Output";
 import DropDown from "./Dropdown";

@@ -1,7 +1,5 @@
 // import { Button } from "@chakra-ui/react";
-import DropDown from "./Dropdown";
 import LoadingButton from "./LoadingButton";
-import { Button } from "./ui/button";
 export default function Output({ output, handleClick, loading }: any) {
   return (
     <div className="flex flex-col items-center">

@@ -1,6 +1,4 @@
 import { Button } from "@chakra-ui/react";
-import DropDown from "./Dropdown";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 export default function Navbar() {
   return (

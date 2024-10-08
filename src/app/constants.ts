@@ -97,25 +97,6 @@ export const languages = [
 export const defaultCode = `
   console.log("welcome there")`;
 
-const fetchLanguages = async () => {
-  try {
-    const response = await fetch("https://ce.judge0.com/languages/");
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const languagesArray = await response.json(); // This should be an array of languages
-    console.log(languagesArray);
-    return languagesArray; // Return the languages array
-  } catch (error) {
-    console.error("Error fetching languages:", error);
-  }
-};
-
-// Example usage
-// fetchLanguages().then((languages) => {
-//   console.log("Languages:", languages);
-// });
-
 export const jlanguages = [
   {
     id: 4,

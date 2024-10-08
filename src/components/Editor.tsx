@@ -1,10 +1,9 @@
 "use client";
 import { Editor } from "@monaco-editor/react";
 import { useState } from "react";
-import DropDown from "./Dropdown";
 
 export default function CodeEditor({ code, language, onChange }: any) {
-  const [value, setValue] = useState(code || "");
+  const [value] = useState(code || "");
 
   const handleChange = (value: any) => {
     onChange(value);
