@@ -46,7 +46,7 @@ const DropDown = ({ setLanguage }: any) => {
                 onClick={() => {
                   console.log(language.value);
 
-                  setLanguage(language.value);
+                  setLanguage(language);
 
                   setOpen(!open);
                 }}
