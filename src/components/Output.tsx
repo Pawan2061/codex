@@ -20,7 +20,9 @@ export default function Output({ output, handleClick, loading }: any) {
         </div>
       )}
 
-      <div className="max-w-[100px]">{output && <h1>{output}</h1>}</div>
+      <div className="max-w-[300px]">
+        {output && <h1>{JSON.parse(output)}</h1>}
+      </div>
     </div>
   );
 }

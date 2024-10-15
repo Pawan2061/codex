@@ -3,7 +3,7 @@ import { Button } from "@chakra-ui/react";
 export default function Navbar() {
   return (
     <div className="relative flex flex-col">
-      <div className="h-[30px]  bg-orange-500  hover:bg-orange-400 duration-75 ">
+      <div className="h-[30px]  bg-slate-300  hover:bg-slate-400 duration-75 ">
         <a
           href="https://github.com/Pawan2061/codex"
           title="Fork me on GitHub"
@@ -34,9 +34,20 @@ export default function Navbar() {
           </svg>
         </a>
       </div>
-      <div className="flex mx-auto space-x-10">
-        <Button>2</Button>
-      </div>
+      <main className="relative  flex flex-col justify-center bg-slate-900 overflow-hidden">
+        <div className="w-full max-w-6xl mx-auto px-4 md:px-6 ">
+          <div className="text-center">
+            <div className="font-normal text-xl md:text-xl [text-wrap:balance] bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 to-50% to-slate-200">
+              Trusted by the most innovative minds in{" "}
+              <span className="text-blue-500 inline-flex flex-col">
+                <ul className="block text-left leading-tight [&_li]:block">
+                  <h1 className="hover:text-indigo-600">Code</h1>
+                </ul>
+              </span>
+            </div>
+          </div>
+        </div>
+      </main>{" "}
     </div>
   );
 }
